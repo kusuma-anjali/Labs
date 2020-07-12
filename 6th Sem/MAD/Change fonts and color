@@ -1,0 +1,39 @@
+package com.app_kusuma;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    private TextView main_text_view;
+    private int curr_font_size = 30;
+    private int curr_font_color = 0;
+    private int[] colors = {Color.MAGENTA,Color.CYAN,Color.YELLOW,Color.RED,Color.GREEN};
+
+    @Override
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        main_text_view = (TextView) findViewById(R.id.textview);
+    }
+
+    public void ChangeFontColor(View view) {
+        main_text_view.setTextColor(colors[curr_font_color]);
+        curr_font_color = (curr_font_color+1)%5;
+    }
+
+    public void ChangeFontSize(View view) {
+        main_text_view.setTextSize(curr_font_size);
+        curr_font_size = (curr_font_size+5) % 50;
+        if(curr_font_size == 0)
+        {
+            curr_font_size = 30;
+        }
+
+    }
+}
+
