@@ -1,0 +1,74 @@
+Activity 1:-
+I have executed the python program which prints "hello!" in gedit text editor and run the code through command prompt using the following command.
+python3 trial.py
+
+Activity 2:-
+
+Different IDEs for python are -
+    Eclipse + PyDev.
+    Sublime Text.
+    Atom.
+    GNU Emacs.
+    Vi / Vim.
+    Visual Studio.
+    Visual Studio Code.
+
+Differences between python2 and python3 -
+1) Division operator:
+If we are porting our code or executing the python 3.x code in python 2.x, it can be dangerous if integer division changes go unnoticed (since it doesn’t raise any error). It is preferred to use the floating value (like 7.0/5 or 7/5.0) to get the expected result when porting the code.
+
+print 7 / 5
+print -7 / 5    
+  
+Output in Python 2.x 
+1 
+-2 
+Output in Python 3.x : 
+1.4 
+-1.4 
+
+2)Print function:
+
+print 'Hello, World'   # Python 3.x doesn't support 
+print('Hope You like these facts') 
+
+3)Unicode:
+In Python 2, implicit str type is ASCII. But in Python 3.x implicit str type is Unicode.
+
+print(type('default string ')) 
+print(type(b'string with b ')) 
+  
+Output in Python 2.x (Bytes is same as str) 
+<type 'str'> 
+<type 'str'> 
+  
+Output in Python 3.x (Bytes and str are different) 
+<class 'str'> 
+<class 'bytes'> 
+Python 2.x also supports Unicode in the following case
+print(type(u'string with b ')) 
+Output in Python 2.x
+<type 'unicode'>
+
+4)List Comprehension Loop Variables: 
+In previous versions of Python, giving the variable that is iterated over in a list comprehension the same name as a global variable could lead to the value of the global variable being changed — something you usually don’t want. This irritating bug has been fixed in Python 3, so you can use a variable name you already used for the control variable in your list comprehension without worrying about it leaking out and messing with the values of the variables in the rest of your code. 
+
+5)Raising Exceptions: 
+Python 3 requires different syntax for raising exceptions. If you want to output an error message to the user, you need to use the syntax:
+raise IOError(“your error message”)
+
+This syntax works in Python 2 as well. The following code works only in Python 2, not Python 3:
+raise IOError, “your error message”
+
+6)Iteration:
+The new Range() function introduced to perform iterations in python 3
+
+In Python 2, the xrange() is used for iterations. 
+
+Activity 3:
+
+Web-development: Django
+Data Science :Pandas is the Python Data Analysis Library, used for everything from importing data from Excel spreadsheets to processing sets for time-series analysis. 
+Machine learning : Numpy,Scipy
+
+
