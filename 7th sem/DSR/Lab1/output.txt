@@ -1,0 +1,97 @@
+> vec<-c(20,30,40,60)
+> vec
+[1] 20 30 40 60
+> vec * 2
+[1]  40  60  80 120
+> vec / 2
+[1] 10 15 20 30
+> vec %% 2
+[1] 0 0 0 0
+> vec %/% 2
+[1] 10 15 20 30
+> vec + 6
+[1] 26 36 46 66
+> class(vec)
+[1] "numeric"
+> min(c(1.2,3,3.4),c(2,3)) + c(8,9)
+[1]  9.2 10.2
+> c(2,3,4,12) ^ c(1,2)
+[1]   2   9   4 144
+> getwd()
+[1] "C:/Users/Kusuma N/Documents"
+> list.files()
+ [1] "AndroidStudio"          
+ [2] "app backup.reg"         
+ [3] "Arduino"                
+ [4] "Basics.R"               
+ [5] "Custom Office Templates"
+ [6] "Desktop - Shortcut.lnk" 
+ [7] "desktop.ini"            
+ [8] "My Data Sources"        
+ [9] "My Music"               
+[10] "My Pictures"            
+[11] "My Videos"              
+[12] "Python Scripts"         
+[13] "R"                      
+[14] "registry.reg"           
+[15] "StudentDB"              
+[16] "Zoom"                   
+> help(plot)
+> example(mean)
+
+mean> x <- c(0:10, 50)
+
+mean> xm <- mean(x)
+
+mean> c(xm, mean(x, trim = 0.10))
+[1] 8.75 5.50
+> help.start()
+If nothing happens, you should open
+‘http://127.0.0.1:12148/doc/html/index.html’ yourself
+> find('plot')
+[1] "package:graphics"
+[2] "package:base"    
+> demo(graphics)
+
+
+	demo(graphics)
+	---- ~~~~~~~~
+
+Type  <Return>	 to start : 
+
+> #  Copyright (C) 1997-2009 The R Core Team
+> 
+> require(datasets)
+
+> require(grDevices); require(graphics)
+
+> ## Here is some code which illustrates some of the differences between
+> ## R and S graphics capabilities.  Note that colors are generally specified
+> ## by a character string name (taken from the X11 rgb.txt file) and that line
+> ## textures are given similarly.  The parameter "bg" sets the background
+> ## parameter for the plot and there is also an "fg" parameter which sets
+> ## the foreground color.
+> 
+> 
+> x <- stats::rnorm(50)
+
+> opar <- par(bg = "white")
+
+> plot(x, ann = FALSE, type = "n")
+Hit <Return> to see next plot: 
+
+> x<-c(1:10)
+> x
+ [1]  1  2  3  4  5  6  7  8  9 10
+> x[1:8]
+[1] 1 2 3 4 5 6 7 8
+> x[x>3]
+[1]  4  5  6  7  8  9 10
+> abs(c(-1,-2))
+[1] 1 2
+> sqrt(c(2,3))
+[1] 1.414214 1.732051
+> sum(c(2,4,5))
+[1] 11
+> prod(c(2,3,4))
+[1] 24
