@@ -1,0 +1,25 @@
+vec<-c(20,30,40,60)
+vec
+vec * 2
+vec / 2
+vec %% 2
+vec %/% 2
+vec + 6
+class(vec)
+min(c(1.2,3,3.4),c(2,3)) + c(8,9)
+c(2,3,4,12) ^ c(1,2)
+getwd()
+list.files()
+help(plot)
+example(mean)
+help.start()
+find('plot')
+demo(graphics)
+x<-c(1:10)
+x
+x[1:8]
+x[x>3]
+abs(c(-1,-2))
+sqrt(c(2,3))
+sum(c(2,4,5))
+prod(c(2,3,4))
