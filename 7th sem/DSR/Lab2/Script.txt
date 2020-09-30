@@ -1,0 +1,13 @@
+M = matrix(nrow = 2,ncol = 2,data = c(1,2,3,4),byrow = TRUE)
+M
+mt <- t(M)
+mt
+m <-eigen(M)
+m
+mi = solve(M)
+mi
+crossprod(M)
+M[1,]
+M[2,]
+M[,1]
+M[,2]
