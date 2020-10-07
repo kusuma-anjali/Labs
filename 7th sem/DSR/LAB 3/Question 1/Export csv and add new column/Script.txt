@@ -1,0 +1,8 @@
+getwd()
+grep(".csv",list.files(),value=T)
+user_data<-read.delim("Churn_Modelling.csv.csv",header=TRUE,sep=',')
+user_data
+vec<-c(10,20,30,40,50)
+user_data<-cbind(user_data,vec)
+user_data
+write.table(user_data,"E:/output.txt",sep = "\t",row.names = F)
