@@ -1,0 +1,419 @@
+> setwd("F:/")
+> getwd()
+[1] "F:/"
+> list.files()
+ [1] "$RECYCLE.BIN"              "ang and nodejs"            "churn_data_output.csv"     "Churn_Modelling.csv.csv"  
+ [5] "Config.Msi"                "customers.csv"             "factor_program.R"          "output.csv"               
+ [9] "System Volume Information" "titanic.csv"              
+> data <- read.csv("Churn_Modelling.csv.csv")
+> nrow(data)
+[1] 10000
+> data$EstimatedSalary
+   [1] 101348.88 112542.58 113931.57  93826.63  79084.10 149756.71  10062.80 119346.88  74940.50  71725.73  80181.12
+  [12]  76390.01  26260.98 190857.79  65951.65  64327.26   5097.67  14406.41 158684.81  54724.03 170886.17 138555.46
+  [23] 118913.53   8487.75 187616.16 124508.29 170041.95  38433.35 100187.43  53483.21 140469.38 156731.91  81898.81
+  [34]  34410.55 142033.07  27822.99 114066.77  98453.45  40812.90 178074.04  70154.22 181297.65  94153.83 194365.76
+  [45] 158338.39 126517.46 119708.21 117622.80  90878.13 194099.12 198059.16  86424.57 116978.19 164040.94  40014.76
+  [56] 113410.49  87107.57  45613.75   1643.11  46775.28  84509.57 126494.82 178798.13  99398.36  92840.67  27758.36
+  [67] 110431.51 196673.28 113656.85  18203.00  28373.86  33953.87  44203.55  58426.81 145562.40  22388.00 139161.64
+  [78] 148210.64 194239.63  98301.61 171413.66 136458.19  26019.59 159235.29   1907.66 114675.75 128643.35 151869.35
+  [89]  93251.42 156791.36 174205.22 147132.46 109614.57 172290.61  85982.47 121277.78  64595.25 197276.13  99645.04
+ [100]   6534.18 161848.03 167162.43  41970.72  60536.56 177655.68  30984.59  10054.53  36976.52  71862.79  99449.86
+ [111]  63082.88  27231.26  86797.41  22994.32 101300.94  74169.13 115638.29  31766.30 199725.39 120834.48  38131.77
+ [122] 100130.95 141069.88 198129.36 183646.41 110265.24   8636.05  46824.08 171378.77 167256.35 124226.16 114935.21
+ [133]  35608.88  16459.37 124411.08  34941.23 167784.28  93165.34  75161.25   8590.83 189543.90 180427.24 193318.33
+ [144] 159123.82 126213.84  54141.50 141075.51  24495.03  74836.34    878.87  89520.75 149892.79 180800.42  98646.22
+ [155] 109041.53  17941.16  82996.47  92067.35 104719.66 112687.57  84699.56  83473.82  47125.11 106977.80  55582.54
+ [166] 139874.43 162503.48 196499.96  40721.24  53134.30 164017.89 155996.96   5472.70 112187.11 146457.83  27286.10
+ [177] 130553.47 179351.89  94774.12   8080.85  19482.50  48071.61 174531.27  55470.78   8546.87  95857.18 194945.80
+ [188] 131521.72 196108.51 148564.76  92982.61  17675.36 114996.43  86957.42 128077.80    600.36  43001.46 158591.12
+ [199]  47847.19  10488.44   5978.20 121409.06 146145.93  14374.86  94670.77 179670.31 199304.74 151954.39 142513.50
+ [210] 158264.62 169381.90 169915.02  88852.47  40645.81  60427.30 157959.02 133007.34 176576.62  34888.04  28737.71
+ [221]  98178.57 125010.24 167984.61   4861.72 108872.45 198252.88  26960.31  85746.52  77206.25  61048.53 111981.19
+ [232]  62232.60 156105.03 150135.38  93146.11  33462.94 144375.00  55803.96  89048.46 162812.16 136259.65 124052.97
+ [243]  74158.80  45071.09  62030.06 131953.23  79414.00 199638.56 157577.29 134420.75  99805.99  97932.68 170968.99
+ [254]  57558.95 176713.47  34283.23 198637.34 156917.12  50457.20 140075.55  65323.11  64323.24  14956.44 111879.21
+ [265]  18606.23 123137.01 148528.24  13898.31  81259.25 161051.75 191599.67  48559.19 186339.74  33159.37  93883.53
+ [276] 110899.30  11199.04 189992.97 164255.69 152167.79  33949.67  68143.93  47251.79  25885.72 192633.85  34577.36
+ [287] 161229.84 100816.29 181694.44  79078.91 137316.32 194926.86  51285.49 150401.53 112491.96  73656.38 106636.89
+ [298] 155853.52 162599.51 103737.82 160990.27  15462.84  10334.05 190686.16  94440.45  28257.63 170034.95  31824.29
+ [309] 127166.49  44937.01 188603.07 145111.37 171463.83 182822.50  87213.33  57175.32 120540.83  28714.34  85426.28
+ [320]  46170.75  64448.36  16278.97 182855.42  50404.72 107640.25 134132.65 103480.69 108761.05 179012.30  95145.14
+ [331]  72143.44  19162.89 144680.18 177772.03   5597.94 116828.51 174652.51   2010.98  14109.85  43527.40  86099.23
+ [342] 161574.19  38970.14 127587.22  30380.12  90908.95 138275.01  32171.79 126143.23 129892.93 102416.84  18719.67
+ [353]  61936.22  78358.94 147224.27 160979.66 132298.49 174248.52 123547.28  32790.02 181543.67   2319.96 189543.19
+ [364]  10940.40 199493.38 188193.25 172572.64 189339.60  53512.16  34004.44  10598.29 113428.77 183487.98 187658.09
+ [375] 172459.39  21016.00 122381.02 128123.66  19570.63 188150.60 111020.24 123775.15 146700.22 145251.35  82463.69
+ [386]  15928.49  45886.33 186489.95 162922.65   9262.77  84932.40  71557.12  77405.95    417.41  71405.17 153400.24
+ [397]    371.05  67789.99 145894.90 183840.51 108887.44 154071.27 179291.85  56937.43 112239.03  45909.87 173779.25
+ [408] 125696.26 159585.61 106761.47 129590.18  80006.65 140451.52 187929.43 167155.36 191420.71  11384.45  94898.10
+ [419] 106781.59 159508.52  93524.19  87168.46   8128.32 125518.32  48963.59  98368.24 148584.61  27474.81  76192.21
+ [430] 134600.94  72467.99 199645.45  42749.85 136050.44  73564.44  85578.63 129826.89 119666.00  68052.08 164104.74
+ [441]  80190.36  84126.75  70179.00 118024.10 145704.19 183049.41 120906.83 100433.83 138777.00 124694.99  40084.32
+ [452] 119232.33  43921.36  62222.81  56577.00 164253.35   7666.73  68487.51 199273.98 186062.36 195711.16  36692.17
+ [463] 106920.57  48725.68 167036.94  68777.26  18924.92  71905.77  64833.28 184843.77 176730.02  20629.40  28415.36
+ [474]  77231.27 102750.70  34580.80 183598.77 147358.27 108469.20  20612.82 181196.76 160249.10 110783.28 144995.33
+ [485] 150227.85  53718.28  75248.30  14353.43 130486.57 100127.71 196356.17   9983.88 118974.77 194998.34 134901.34
+ [496]  72924.56 101057.95 142838.64 127059.04 116503.92  54405.79  88721.84  74135.48 111346.22 194902.16  31474.27
+ [507]  21198.39 186976.60 117202.19 143739.29 161811.23  98090.91  71095.41  13107.24  67110.59  88225.02  62256.87
+ [518] 135925.72 177815.87 126471.13 188574.12 119175.45 139093.73 115916.55  96463.25 112349.51 165303.79 166031.08
+ [529]  38411.79  77783.35  29871.79  59747.63  79919.13  76773.53  54018.93  70649.64  59093.39 127569.80  18260.98
+ [540]  73275.96 136129.49 153237.59 106841.12 109078.35  87822.14 126644.98  47414.15  41879.99  75808.10  47911.03
+ [551]  28737.78   2079.20 121562.33  55003.79 193131.42 191932.27 159418.10 191468.78  38913.68    705.18 138490.03
+ [562]  82970.69  76744.72  71244.59  12182.15 141210.50 191763.07  37938.74  74890.58 166698.18  62678.53  67740.08
+ [573] 161519.77 159835.78  30876.84  14858.10  75685.97 144183.10  65170.66  82526.92 169161.46 109291.39   6057.81
+ [584]  77077.14  54954.51 179614.80  35588.07 117356.14 160696.72 147278.43  56594.36   1299.75  25095.03 146326.45
+ [595]  38296.21 164061.60 107811.28  30838.51   9221.78  33738.27 110916.15 169654.57  69829.40  54926.51  94728.49
+ [606]  80393.27 111307.98  19834.32  78397.24  86410.28 172749.65   1002.39  13601.79  77866.91 175296.76 121751.04
+ [617]  89593.26 193437.89  86945.00 183318.79  71154.10 151887.16  75888.65  89566.74  26475.79 126355.80  93839.30
+ [628]   7698.60 145593.85  45042.56  61108.56  57553.98  62674.42  12120.79  50129.87  55022.43 117834.91 168840.23
+ [639]  24234.11 190627.01 156618.38  42334.38 110784.42 173683.00  27046.46  20598.59 104991.28   8996.97  64420.50
+ [650] 145700.22 196335.48  14781.12 108139.23  19287.06   9567.39 132210.49  21600.11 199661.50 124341.49  15766.10
+ [661]  33642.21 117704.65  58803.28 137537.22 131300.68  84174.81 160941.78 143954.99  56297.85   8404.73  30020.09
+ [672]  58137.42  47472.68  19131.71 187288.50  17603.81  67020.03 147802.94  41610.62  44255.65  78416.14 137254.55
+ [683] 151303.48  86333.63  89801.90  29358.57 181600.72 124118.71  38867.46  31106.67  67611.36  77837.63   6078.46
+ [694] 177896.92 123882.73  15304.08  76569.64 120657.32  16436.56 107667.91  95611.47  19799.26 123214.74  71709.12
+ [705] 149066.14  20451.99  32825.50   6232.31  10357.03 147794.63 116973.48 129964.94  92816.86 172114.67  16649.31
+ [716] 144517.19 182038.60  24210.56 172175.90  47578.45 150694.42 177683.02  66088.83 169291.70 117140.41  79510.37
+ [727]  77108.66   9679.28  81753.92 131372.38  25310.82 187925.75  98820.39  64166.70 176924.21  90055.08  72814.31
+ [738] 168290.06 161767.38  44420.18  37147.61 125381.02 149853.89 161435.02 102925.76  70899.27 145936.28  54227.06
+ [749]  59280.79 126952.50 130567.02  73294.48   3937.37   2383.59  14279.44 141300.53  78140.75 117431.10  72008.61
+ [760]  60887.58 194764.83  88705.14  35817.97  31520.40 157908.19 142200.15 182055.36 157552.08 120284.67  24506.95
+ [771]  47271.61  41176.60   9468.64 123880.19 158887.09 117036.38 120415.61  16064.25  52615.62 121210.09 192247.35
+ [782]  68759.57  75937.47  84569.13 190696.35  67468.67 104435.94  47166.55 119899.52 173498.45  93249.26 142917.54
+ [793] 111755.80 108543.21 180345.44  99444.02 109563.28  92568.07  37976.36 103315.74 173952.50  34673.98  46163.44
+ [804] 140676.98 151738.54  14679.81 175544.02 181964.60 136886.86 122218.23 180439.75 190419.81  58685.59  89017.38
+ [815]  50051.42 146041.45 191166.09 103516.08 164825.04 172557.77  84320.94 122662.98  72085.10 110932.24 143635.36
+ [826]   3710.34 179843.33  10643.38 131167.98  10553.31 130928.22 157003.99 138527.56 167032.49  41642.29   9677.00
+ [837] 147012.22  80553.87  30730.95 140134.43  91936.10 178252.63 198674.08  28266.90  92381.01 135180.11  27330.59
+ [848] 125305.34 149648.45  59887.15  45041.32 113316.77  39087.42   7330.59  95463.29 167848.02  93953.84 174227.66
+ [859] 135399.21 195635.30  97508.04 188083.77 116704.25  97614.87 186884.04 131501.72  24302.95 110510.28 108488.33
+ [870] 197015.20  27689.77   9217.55  15068.18   7797.01   4400.32 182025.95 122763.95  38152.01  63163.99  73418.29
+ [881]  17978.68 115136.51 149575.59  60917.24 142548.33 157878.67  12796.43  18657.77 134589.58  10350.74  66013.27
+ [892]   5907.11  74077.91  77294.56  54359.02 156124.93  94820.85 155155.25 128702.10  22745.50  71865.31  84294.82
+ [903] 149139.13 185489.11 176407.15  92027.69  43932.54 115789.25 125777.28  18461.90  79633.38 121542.29  94739.20
+ [914]  93302.29 193793.78  74835.65  56999.90  57236.44  81483.64  26752.56   9200.54  22447.85 189122.89  16161.82
+ [925]  68600.36    447.73  15650.73 149599.62  90304.01 115676.38  38812.67  34338.21    823.36 135482.26  10656.89
+ [936] 116467.35  96823.32 171096.20  79881.39 157862.82 127951.81 191074.11 157333.69 133457.52 130789.60 128373.88
+ [947] 194273.20   5684.17 131043.20  21228.34  43250.30   4389.40 189271.90 102284.20 156774.94  69865.49  85523.24
+ [958]  51219.80   7222.92  23971.33 132173.31 113639.64  39768.59 108732.96 117349.19  78004.50 152417.79  26057.08
+ [969]  79972.09 107125.79  47679.14 134509.47 153265.31 179883.04 138882.98   9855.81  67046.83  56388.63  77764.37
+ [980] 130590.35 151912.49 151083.80    777.37  69454.24  11723.57  91565.25  79616.37 102299.81 104533.51 140765.57
+ [991]  66214.13 139816.10 140139.28 102297.15 145765.83  83912.24  78439.73   6776.92   9903.42  91561.91
+ [ reached getOption("max.print") -- omitted 9000 entries ]
+> min(data$EstimatedSalary)
+[1] 11.58
+> max(data$EstimatedSalary)
+[1] 199992.5
+> income_group <- vector(mode="character",length=length(data$EstimatedSalary))
+> income_group
+   [1] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+  [40] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+  [79] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [118] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [157] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [196] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [235] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [274] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [313] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [352] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [391] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [430] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [469] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [508] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [547] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [586] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [625] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [664] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [703] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [742] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [781] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [820] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [859] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [898] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [937] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [976] "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ [ reached getOption("max.print") -- omitted 9000 entries ]
+> income_group[data$EstimatedSalary<10000]<-"Low"
+> income_group[data$EstimatedSalary >=10000 & data$EstimatedSalary < 100000]<-"middle"
+> income_group[data$EstimatedSalary > 100000]<-"High"
+> income_group
+   [1] "High"   "High"   "High"   "middle" "middle" "High"   "middle" "High"   "middle" "middle" "middle" "middle" "middle"
+  [14] "High"   "middle" "middle" "Low"    "middle" "High"   "middle" "High"   "High"   "High"   "Low"    "High"   "High"  
+  [27] "High"   "middle" "High"   "middle" "High"   "High"   "middle" "middle" "High"   "middle" "High"   "middle" "middle"
+  [40] "High"   "middle" "High"   "middle" "High"   "High"   "High"   "High"   "High"   "middle" "High"   "High"   "middle"
+  [53] "High"   "High"   "middle" "High"   "middle" "middle" "Low"    "middle" "middle" "High"   "High"   "middle" "middle"
+  [66] "middle" "High"   "High"   "High"   "middle" "middle" "middle" "middle" "middle" "High"   "middle" "High"   "High"  
+  [79] "High"   "middle" "High"   "High"   "middle" "High"   "Low"    "High"   "High"   "High"   "middle" "High"   "High"  
+  [92] "High"   "High"   "High"   "middle" "High"   "middle" "High"   "middle" "Low"    "High"   "High"   "middle" "middle"
+ [105] "High"   "middle" "middle" "middle" "middle" "middle" "middle" "middle" "middle" "middle" "High"   "middle" "High"  
+ [118] "middle" "High"   "High"   "middle" "High"   "High"   "High"   "High"   "High"   "Low"    "middle" "High"   "High"  
+ [131] "High"   "High"   "middle" "middle" "High"   "middle" "High"   "middle" "middle" "Low"    "High"   "High"   "High"  
+ [144] "High"   "High"   "middle" "High"   "middle" "middle" "Low"    "middle" "High"   "High"   "middle" "High"   "middle"
+ [157] "middle" "middle" "High"   "High"   "middle" "middle" "middle" "High"   "middle" "High"   "High"   "High"   "middle"
+ [170] "middle" "High"   "High"   "Low"    "High"   "High"   "middle" "High"   "High"   "middle" "Low"    "middle" "middle"
+ [183] "High"   "middle" "Low"    "middle" "High"   "High"   "High"   "High"   "middle" "middle" "High"   "middle" "High"  
+ [196] "Low"    "middle" "High"   "middle" "middle" "Low"    "High"   "High"   "middle" "middle" "High"   "High"   "High"  
+ [209] "High"   "High"   "High"   "High"   "middle" "middle" "middle" "High"   "High"   "High"   "middle" "middle" "middle"
+ [222] "High"   "High"   "Low"    "High"   "High"   "middle" "middle" "middle" "middle" "High"   "middle" "High"   "High"  
+ [235] "middle" "middle" "High"   "middle" "middle" "High"   "High"   "High"   "middle" "middle" "middle" "High"   "middle"
+ [248] "High"   "High"   "High"   "middle" "middle" "High"   "middle" "High"   "middle" "High"   "High"   "middle" "High"  
+ [261] "middle" "middle" "middle" "High"   "middle" "High"   "High"   "middle" "middle" "High"   "High"   "middle" "High"  
+ [274] "middle" "middle" "High"   "middle" "High"   "High"   "High"   "middle" "middle" "middle" "middle" "High"   "middle"
+ [287] "High"   "High"   "High"   "middle" "High"   "High"   "middle" "High"   "High"   "middle" "High"   "High"   "High"  
+ [300] "High"   "High"   "middle" "middle" "High"   "middle" "middle" "High"   "middle" "High"   "middle" "High"   "High"  
+ [313] "High"   "High"   "middle" "middle" "High"   "middle" "middle" "middle" "middle" "middle" "High"   "middle" "High"  
+ [326] "High"   "High"   "High"   "High"   "middle" "middle" "middle" "High"   "High"   "Low"    "High"   "High"   "Low"   
+ [339] "middle" "middle" "middle" "High"   "middle" "High"   "middle" "middle" "High"   "middle" "High"   "High"   "High"  
+ [352] "middle" "middle" "middle" "High"   "High"   "High"   "High"   "High"   "middle" "High"   "Low"    "High"   "middle"
+ [365] "High"   "High"   "High"   "High"   "middle" "middle" "middle" "High"   "High"   "High"   "High"   "middle" "High"  
+ [378] "High"   "middle" "High"   "High"   "High"   "High"   "High"   "middle" "middle" "middle" "High"   "High"   "Low"   
+ [391] "middle" "middle" "middle" "Low"    "middle" "High"   "Low"    "middle" "High"   "High"   "High"   "High"   "High"  
+ [404] "middle" "High"   "middle" "High"   "High"   "High"   "High"   "High"   "middle" "High"   "High"   "High"   "High"  
+ [417] "middle" "middle" "High"   "High"   "middle" "middle" "Low"    "High"   "middle" "middle" "High"   "middle" "middle"
+ [430] "High"   "middle" "High"   "middle" "High"   "middle" "middle" "High"   "High"   "middle" "High"   "middle" "middle"
+ [443] "middle" "High"   "High"   "High"   "High"   "High"   "High"   "High"   "middle" "High"   "middle" "middle" "middle"
+ [456] "High"   "Low"    "middle" "High"   "High"   "High"   "middle" "High"   "middle" "High"   "middle" "middle" "middle"
+ [469] "middle" "High"   "High"   "middle" "middle" "middle" "High"   "middle" "High"   "High"   "High"   "middle" "High"  
+ [482] "High"   "High"   "High"   "High"   "middle" "middle" "middle" "High"   "High"   "High"   "Low"    "High"   "High"  
+ [495] "High"   "middle" "High"   "High"   "High"   "High"   "middle" "middle" "middle" "High"   "High"   "middle" "middle"
+ [508] "High"   "High"   "High"   "High"   "middle" "middle" "middle" "middle" "middle" "middle" "High"   "High"   "High"  
+ [521] "High"   "High"   "High"   "High"   "middle" "High"   "High"   "High"   "middle" "middle" "middle" "middle" "middle"
+ [534] "middle" "middle" "middle" "middle" "High"   "middle" "middle" "High"   "High"   "High"   "High"   "middle" "High"  
+ [547] "middle" "middle" "middle" "middle" "middle" "Low"    "High"   "middle" "High"   "High"   "High"   "High"   "middle"
+ [560] "Low"    "High"   "middle" "middle" "middle" "middle" "High"   "High"   "middle" "middle" "High"   "middle" "middle"
+ [573] "High"   "High"   "middle" "middle" "middle" "High"   "middle" "middle" "High"   "High"   "Low"    "middle" "middle"
+ [586] "High"   "middle" "High"   "High"   "High"   "middle" "Low"    "middle" "High"   "middle" "High"   "High"   "middle"
+ [599] "Low"    "middle" "High"   "High"   "middle" "middle" "middle" "middle" "High"   "middle" "middle" "middle" "High"  
+ [612] "Low"    "middle" "middle" "High"   "High"   "middle" "High"   "middle" "High"   "middle" "High"   "middle" "middle"
+ [625] "middle" "High"   "middle" "Low"    "High"   "middle" "middle" "middle" "middle" "middle" "middle" "middle" "High"  
+ [638] "High"   "middle" "High"   "High"   "middle" "High"   "High"   "middle" "middle" "High"   "Low"    "middle" "High"  
+ [651] "High"   "middle" "High"   "middle" "Low"    "High"   "middle" "High"   "High"   "middle" "middle" "High"   "middle"
+ [664] "High"   "High"   "middle" "High"   "High"   "middle" "Low"    "middle" "middle" "middle" "middle" "High"   "middle"
+ [677] "middle" "High"   "middle" "middle" "middle" "High"   "High"   "middle" "middle" "middle" "High"   "High"   "middle"
+ [690] "middle" "middle" "middle" "Low"    "High"   "High"   "middle" "middle" "High"   "middle" "High"   "middle" "middle"
+ [703] "High"   "middle" "High"   "middle" "middle" "Low"    "middle" "High"   "High"   "High"   "middle" "High"   "middle"
+ [716] "High"   "High"   "middle" "High"   "middle" "High"   "High"   "middle" "High"   "High"   "middle" "middle" "Low"   
+ [729] "middle" "High"   "middle" "High"   "middle" "middle" "High"   "middle" "middle" "High"   "High"   "middle" "middle"
+ [742] "High"   "High"   "High"   "High"   "middle" "High"   "middle" "middle" "High"   "High"   "middle" "Low"    "Low"   
+ [755] "middle" "High"   "middle" "High"   "middle" "middle" "High"   "middle" "middle" "middle" "High"   "High"   "High"  
+ [768] "High"   "High"   "middle" "middle" "middle" "Low"    "High"   "High"   "High"   "High"   "middle" "middle" "High"  
+ [781] "High"   "middle" "middle" "middle" "High"   "middle" "High"   "middle" "High"   "High"   "middle" "High"   "High"  
+ [794] "High"   "High"   "middle" "High"   "middle" "middle" "High"   "High"   "middle" "middle" "High"   "High"   "middle"
+ [807] "High"   "High"   "High"   "High"   "High"   "High"   "middle" "middle" "middle" "High"   "High"   "High"   "High"  
+ [820] "High"   "middle" "High"   "middle" "High"   "High"   "Low"    "High"   "middle" "High"   "middle" "High"   "High"  
+ [833] "High"   "High"   "middle" "Low"    "High"   "middle" "middle" "High"   "middle" "High"   "High"   "middle" "middle"
+ [846] "High"   "middle" "High"   "High"   "middle" "middle" "High"   "middle" "Low"    "middle" "High"   "middle" "High"  
+ [859] "High"   "High"   "middle" "High"   "High"   "middle" "High"   "High"   "middle" "High"   "High"   "High"   "middle"
+ [872] "Low"    "middle" "Low"    "Low"    "High"   "High"   "middle" "middle" "middle" "middle" "High"   "High"   "middle"
+ [885] "High"   "High"   "middle" "middle" "High"   "middle" "middle" "Low"    "middle" "middle" "middle" "High"   "middle"
+ [898] "High"   "High"   "middle" "middle" "middle" "High"   "High"   "High"   "middle" "middle" "High"   "High"   "middle"
+ [911] "middle" "High"   "middle" "middle" "High"   "middle" "middle" "middle" "middle" "middle" "Low"    "middle" "High"  
+ [924] "middle" "middle" "Low"    "middle" "High"   "middle" "High"   "middle" "middle" "Low"    "High"   "middle" "High"  
+ [937] "middle" "High"   "middle" "High"   "High"   "High"   "High"   "High"   "High"   "High"   "High"   "Low"    "High"  
+ [950] "middle" "middle" "Low"    "High"   "High"   "High"   "middle" "middle" "middle" "Low"    "middle" "High"   "High"  
+ [963] "middle" "High"   "High"   "middle" "High"   "middle" "middle" "High"   "middle" "High"   "High"   "High"   "High"  
+ [976] "Low"    "middle" "middle" "middle" "High"   "High"   "High"   "Low"    "middle" "middle" "middle" "middle" "High"  
+ [989] "High"   "High"   "middle" "High"   "High"   "High"   "High"   "middle" "middle" "Low"    "Low"    "middle"
+ [ reached getOption("max.print") -- omitted 9000 entries ]
+> spender<-factor(income_group,levels=c("Low","middle","High"),ordered=TRUE)
+> spender
+   [1] High   High   High   middle middle High   middle High   middle middle middle middle middle High   middle middle Low   
+  [18] middle High   middle High   High   High   Low    High   High   High   middle High   middle High   High   middle middle
+  [35] High   middle High   middle middle High   middle High   middle High   High   High   High   High   middle High   High  
+  [52] middle High   High   middle High   middle middle Low    middle middle High   High   middle middle middle High   High  
+  [69] High   middle middle middle middle middle High   middle High   High   High   middle High   High   middle High   Low   
+  [86] High   High   High   middle High   High   High   High   High   middle High   middle High   middle Low    High   High  
+ [103] middle middle High   middle middle middle middle middle middle middle middle middle High   middle High   middle High  
+ [120] High   middle High   High   High   High   High   Low    middle High   High   High   High   middle middle High   middle
+ [137] High   middle middle Low    High   High   High   High   High   middle High   middle middle Low    middle High   High  
+ [154] middle High   middle middle middle High   High   middle middle middle High   middle High   High   High   middle middle
+ [171] High   High   Low    High   High   middle High   High   middle Low    middle middle High   middle Low    middle High  
+ [188] High   High   High   middle middle High   middle High   Low    middle High   middle middle Low    High   High   middle
+ [205] middle High   High   High   High   High   High   High   middle middle middle High   High   High   middle middle middle
+ [222] High   High   Low    High   High   middle middle middle middle High   middle High   High   middle middle High   middle
+ [239] middle High   High   High   middle middle middle High   middle High   High   High   middle middle High   middle High  
+ [256] middle High   High   middle High   middle middle middle High   middle High   High   middle middle High   High   middle
+ [273] High   middle middle High   middle High   High   High   middle middle middle middle High   middle High   High   High  
+ [290] middle High   High   middle High   High   middle High   High   High   High   High   middle middle High   middle middle
+ [307] High   middle High   middle High   High   High   High   middle middle High   middle middle middle middle middle High  
+ [324] middle High   High   High   High   High   middle middle middle High   High   Low    High   High   Low    middle middle
+ [341] middle High   middle High   middle middle High   middle High   High   High   middle middle middle High   High   High  
+ [358] High   High   middle High   Low    High   middle High   High   High   High   middle middle middle High   High   High  
+ [375] High   middle High   High   middle High   High   High   High   High   middle middle middle High   High   Low    middle
+ [392] middle middle Low    middle High   Low    middle High   High   High   High   High   middle High   middle High   High  
+ [409] High   High   High   middle High   High   High   High   middle middle High   High   middle middle Low    High   middle
+ [426] middle High   middle middle High   middle High   middle High   middle middle High   High   middle High   middle middle
+ [443] middle High   High   High   High   High   High   High   middle High   middle middle middle High   Low    middle High  
+ [460] High   High   middle High   middle High   middle middle middle middle High   High   middle middle middle High   middle
+ [477] High   High   High   middle High   High   High   High   High   middle middle middle High   High   High   Low    High  
+ [494] High   High   middle High   High   High   High   middle middle middle High   High   middle middle High   High   High  
+ [511] High   middle middle middle middle middle middle High   High   High   High   High   High   High   middle High   High  
+ [528] High   middle middle middle middle middle middle middle middle middle High   middle middle High   High   High   High  
+ [545] middle High   middle middle middle middle middle Low    High   middle High   High   High   High   middle Low    High  
+ [562] middle middle middle middle High   High   middle middle High   middle middle High   High   middle middle middle High  
+ [579] middle middle High   High   Low    middle middle High   middle High   High   High   middle Low    middle High   middle
+ [596] High   High   middle Low    middle High   High   middle middle middle middle High   middle middle middle High   Low   
+ [613] middle middle High   High   middle High   middle High   middle High   middle middle middle High   middle Low    High  
+ [630] middle middle middle middle middle middle middle High   High   middle High   High   middle High   High   middle middle
+ [647] High   Low    middle High   High   middle High   middle Low    High   middle High   High   middle middle High   middle
+ [664] High   High   middle High   High   middle Low    middle middle middle middle High   middle middle High   middle middle
+ [681] middle High   High   middle middle middle High   High   middle middle middle middle Low    High   High   middle middle
+ [698] High   middle High   middle middle High   middle High   middle middle Low    middle High   High   High   middle High  
+ [715] middle High   High   middle High   middle High   High   middle High   High   middle middle Low    middle High   middle
+ [732] High   middle middle High   middle middle High   High   middle middle High   High   High   High   middle High   middle
+ [749] middle High   High   middle Low    Low    middle High   middle High   middle middle High   middle middle middle High  
+ [766] High   High   High   High   middle middle middle Low    High   High   High   High   middle middle High   High   middle
+ [783] middle middle High   middle High   middle High   High   middle High   High   High   High   middle High   middle middle
+ [800] High   High   middle middle High   High   middle High   High   High   High   High   High   middle middle middle High  
+ [817] High   High   High   High   middle High   middle High   High   Low    High   middle High   middle High   High   High  
+ [834] High   middle Low    High   middle middle High   middle High   High   middle middle High   middle High   High   middle
+ [851] middle High   middle Low    middle High   middle High   High   High   middle High   High   middle High   High   middle
+ [868] High   High   High   middle Low    middle Low    Low    High   High   middle middle middle middle High   High   middle
+ [885] High   High   middle middle High   middle middle Low    middle middle middle High   middle High   High   middle middle
+ [902] middle High   High   High   middle middle High   High   middle middle High   middle middle High   middle middle middle
+ [919] middle middle Low    middle High   middle middle Low    middle High   middle High   middle middle Low    High   middle
+ [936] High   middle High   middle High   High   High   High   High   High   High   High   Low    High   middle middle Low   
+ [953] High   High   High   middle middle middle Low    middle High   High   middle High   High   middle High   middle middle
+ [970] High   middle High   High   High   High   Low    middle middle middle High   High   High   Low    middle middle middle
+ [987] middle High   High   High   middle High   High   High   High   middle middle Low    Low    middle
+ [ reached getOption("max.print") -- omitted 9000 entries ]
+Levels: Low < middle < High
+> data<-cbind(data,spender)
+> data
+   RowNumber CustomerId       Surname CreditScore Geography Gender Age Tenure   Balance NumOfProducts HasCrCard
+1          1   15634602      Hargrave         619    France Female  42      2      0.00             1         1
+2          2   15647311          Hill         608     Spain Female  41      1  83807.86             1         0
+3          3   15619304          Onio         502    France Female  42      8 159660.80             3         1
+4          4   15701354          Boni         699    France Female  39      1      0.00             2         0
+5          5   15737888      Mitchell         850     Spain Female  43      2 125510.82             1         1
+6          6   15574012           Chu         645     Spain   Male  44      8 113755.78             2         1
+7          7   15592531      Bartlett         822    France   Male  50      7      0.00             2         1
+8          8   15656148        Obinna         376   Germany Female  29      4 115046.74             4         1
+9          9   15792365            He         501    France   Male  44      4 142051.07             2         0
+10        10   15592389            H?         684    France   Male  27      2 134603.88             1         1
+11        11   15767821        Bearce         528    France   Male  31      6 102016.72             2         0
+12        12   15737173       Andrews         497     Spain   Male  24      3      0.00             2         1
+13        13   15632264           Kay         476    France Female  34     10      0.00             2         1
+14        14   15691483          Chin         549    France Female  25      5      0.00             2         0
+15        15   15600882         Scott         635     Spain Female  35      7      0.00             2         1
+16        16   15643966       Goforth         616   Germany   Male  45      3 143129.41             2         0
+17        17   15737452         Romeo         653   Germany   Male  58      1 132602.88             1         1
+18        18   15788218     Henderson         549     Spain Female  24      9      0.00             2         1
+19        19   15661507       Muldrow         587     Spain   Male  45      6      0.00             1         0
+20        20   15568982           Hao         726    France Female  24      6      0.00             2         1
+21        21   15577657      McDonald         732    France   Male  41      8      0.00             2         1
+22        22   15597945      Dellucci         636     Spain Female  32      8      0.00             2         1
+23        23   15699309     Gerasimov         510     Spain Female  38      4      0.00             1         1
+24        24   15725737        Mosman         669    France   Male  46      3      0.00             2         0
+25        25   15625047           Yen         846    France Female  38      5      0.00             1         1
+26        26   15738191       Maclean         577    France   Male  25      3      0.00             2         0
+27        27   15736816         Young         756   Germany   Male  36      2 136815.64             1         1
+28        28   15700772       Nebechi         571    France   Male  44      9      0.00             2         0
+29        29   15728693    McWilliams         574   Germany Female  43      3 141349.43             1         1
+30        30   15656300      Lucciano         411    France   Male  29      0  59697.17             2         1
+31        31   15589475       Azikiwe         591     Spain Female  39      3      0.00             3         1
+32        32   15706552 Odinakachukwu         533    France   Male  36      7  85311.70             1         0
+33        33   15750181     Sanderson         553   Germany   Male  41      9 110112.54             2         0
+34        34   15659428       Maggard         520     Spain Female  42      6      0.00             2         1
+35        35   15732963      Clements         722     Spain Female  29      9      0.00             2         1
+36        36   15794171      Lombardo         475    France Female  45      0 134264.04             1         1
+37        37   15788448        Watson         490     Spain   Male  31      3 145260.23             1         0
+38        38   15729599       Lorenzo         804     Spain   Male  33      7  76548.60             1         0
+39        39   15717426     Armstrong         850    France   Male  36      7      0.00             1         1
+40        40   15585768       Cameron         582   Germany   Male  41      6  70349.48             2         0
+41        41   15619360         Hsiao         472     Spain   Male  40      4      0.00             1         1
+42        42   15738148        Clarke         465    France Female  51      8 122522.32             1         0
+43        43   15687946       Osborne         556    France Female  61      2 117419.35             1         1
+44        44   15755196        Lavine         834    France Female  49      2 131394.56             1         0
+45        45   15684171       Bianchi         660     Spain Female  61      5 155931.11             1         1
+46        46   15754849         Tyler         776   Germany Female  32      4 109421.13             2         1
+47        47   15602280        Martin         829   Germany Female  27      9 112045.67             1         1
+48        48   15771573       Okagbue         637   Germany Female  39      9 137843.80             1         1
+49        49   15766205           Yin         550   Germany   Male  38      2 103391.38             1         0
+50        50   15771873        Buccho         776   Germany Female  37      2 103769.22             2         1
+51        51   15616550    Chidiebele         698   Germany   Male  44     10 116363.37             2         1
+52        52   15768193     Trevisani         585   Germany   Male  36      5 146050.97             2         0
+53        53   15683553       O'Brien         788    France Female  33      5      0.00             2         0
+54        54   15702298      Parkhill         655   Germany   Male  41      8 125561.97             1         0
+55        55   15569590           Yoo         601   Germany   Male  42      1  98495.72             1         1
+56        56   15760861     Phillipps         619    France   Male  43      1 125211.92             1         1
+57        57   15630053          Tsao         656    France   Male  45      5 127864.40             1         1
+58        58   15647091      Endrizzi         725   Germany   Male  19      0  75888.20             1         0
+59        59   15623944         T'ien         511     Spain Female  66      4      0.00             1         1
+60        60   15804771     Velazquez         614    France   Male  51      4  40685.92             1         1
+61        61   15651280        Hunter         742   Germany   Male  35      5 136857.00             1         0
+62        62   15773469         Clark         687   Germany Female  27      9 152328.88             2         0
+63        63   15702014       Jeffrey         555     Spain   Male  33      1  56084.69             2         0
+64        64   15751208       Pirozzi         684     Spain   Male  56      8  78707.16             1         1
+65        65   15592461       Jackson         603   Germany   Male  26      4 109166.37             1         1
+66        66   15789484       Hammond         751   Germany Female  36      6 169831.46             2         1
+   IsActiveMember EstimatedSalary Exited spender
+1               1       101348.88      1    High
+2               1       112542.58      0    High
+3               0       113931.57      1    High
+4               0        93826.63      0  middle
+5               1        79084.10      0  middle
+6               0       149756.71      1    High
+7               1        10062.80      0  middle
+8               0       119346.88      1    High
+9               1        74940.50      0  middle
+10              1        71725.73      0  middle
+11              0        80181.12      0  middle
+12              0        76390.01      0  middle
+13              0        26260.98      0  middle
+14              0       190857.79      0    High
+15              1        65951.65      0  middle
+16              1        64327.26      0  middle
+17              0         5097.67      1     Low
+18              1        14406.41      0  middle
+19              0       158684.81      0    High
+20              1        54724.03      0  middle
+21              1       170886.17      0    High
+22              0       138555.46      0    High
+23              0       118913.53      1    High
+24              1         8487.75      0     Low
+25              1       187616.16      0    High
+26              1       124508.29      0    High
+27              1       170041.95      0    High
+28              0        38433.35      0  middle
+29              1       100187.43      0    High
+30              1        53483.21      0  middle
+31              0       140469.38      1    High
+32              1       156731.91      0    High
+33              0        81898.81      0  middle
+34              1        34410.55      0  middle
+35              1       142033.07      0    High
+36              0        27822.99      1  middle
+37              1       114066.77      0    High
+38              1        98453.45      0  middle
+39              1        40812.90      0  middle
+40              1       178074.04      0    High
+41              0        70154.22      0  middle
+42              0       181297.65      1    High
+43              1        94153.83      0  middle
+44              0       194365.76      1    High
+45              1       158338.39      0    High
+46              1       126517.46      0    High
+47              1       119708.21      1    High
+48              1       117622.80      1    High
+49              1        90878.13      0  middle
+50              0       194099.12      0    High
+51              0       198059.16      0    High
+52              0        86424.57      0  middle
+53              0       116978.19      0    High
+54              0       164040.94      1    High
+55              0        40014.76      1  middle
+56              1       113410.49      0    High
+57              0        87107.57      0  middle
+58              0        45613.75      0  middle
+59              0         1643.11      1     Low
+60              1        46775.28      0  middle
+61              0        84509.57      0  middle
+62              0       126494.82      0    High
+63              0       178798.13      0    High
+64              1        99398.36      0  middle
+65              1        92840.67      0  middle
+66              1        27758.36      0  middle
+ [ reached 'max' / getOption("max.print") -- omitted 9934 rows ]
+> write.csv(data,"F:/churn_data_output.csv")

@@ -1,0 +1,47 @@
+> Buff_tail <- c(10,1,37,5,12)
+> Garden_bee <- c(8,3,9,6,4)
+> Red_tail <- c(1,8,9,12,4)
+> Carder_bee <- c(8,27,6,32,23)
+> Honey_bee <- c(12,13,16,9,10)
+> mat <-matrix(nrow=5, data = c(Buff_tail,Garden_bee,Red_tail,Carder_bee,Honey_bee))
+> mat
+     [,1] [,2] [,3] [,4] [,5]
+[1,]   10    8    1    8   12
+[2,]    1    3    8   27   13
+[3,]   37    9    9    6   16
+[4,]    5    6   12   32    9
+[5,]   12    4    4   23   10
+> plant_names <- list("Thistle","Vipers","Golden_Rain","Yellowalfala","blackberry")
+> rownames(mat) <- plant_names
+> bees <- list("Buff_tail","Garden_bee","Red_tail","Carder_bee","Honey_bee")
+> colnames(mat) <- bees
+> mat
+             Buff_tail Garden_bee Red_tail Carder_bee Honey_bee
+Thistle             10          8        1          8        12
+Vipers               1          3        8         27        13
+Golden_Rain         37          9        9          6        16
+Yellowalfala         5          6       12         32         9
+blackberry          12          4        4         23        10
+> dt <- as.data.frame(t(mat))
+> dt
+           Thistle Vipers Golden_Rain Yellowalfala blackberry
+Buff_tail       10      1          37            5         12
+Garden_bee       8      3           9            6          4
+Red_tail         1      8           9           12          4
+Carder_bee       8     27           6           32         23
+Honey_bee       12     13          16            9         10
+> as.list(dt)
+$Thistle
+[1] 10  8  1  8 12
+
+$Vipers
+[1]  1  3  8 27 13
+
+$Golden_Rain
+[1] 37  9  9  6 16
+
+$Yellowalfala
+[1]  5  6 12 32  9
+
+$blackberry
+[1] 12  4  4 23 10
