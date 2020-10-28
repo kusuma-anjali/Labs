@@ -1,0 +1,27 @@
+> empid <- c(1:10)
+> salary <- sample.int(100,10)
+> salary
+ [1]   4  10  23 100  24  25  15  43  41  58
+> marital_status <- c("Married","Married","Bachelor","Bachelor","Married","Bachelor","Married","Bachelor","Married","Bachelor")
+> marital_status
+ [1] "Married"  "Married"  "Bachelor" "Bachelor" "Married"  "Bachelor"
+ [7] "Married"  "Bachelor" "Married"  "Bachelor"
+> df <- data.frame(empid,salary,marital_status)
+> df
+   empid salary marital_status
+1      1      4        Married
+2      2     10        Married
+3      3     23       Bachelor
+4      4    100       Bachelor
+5      5     24        Married
+6      6     25       Bachelor
+7      7     15        Married
+8      8     43       Bachelor
+9      9     41        Married
+10    10     58       Bachelor
+> boxplot(salary ~ marital_status,data = df)
+> boxplot
+function (x, ...) 
+UseMethod("boxplot")
+<bytecode: 0x0000022d9f19c0a8>
+<environment: namespace:graphics>
