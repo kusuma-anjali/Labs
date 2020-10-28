@@ -8,5 +8,6 @@ y <- rnorm(100)
 y
 dat <- data.frame(cbind(x,y))
 dat
-ggplot() + geom_point(data = dat, aes(x=x,y=y), size = 3, color = "blue")
 boxplot(dat$x,dat$y,names = c('x','y'),xlab= 'x axis',ylab = 'y axis',col = "blue")
+ggplot()+geom_point(data=dat,aes(x=x,y=y),size=3,color="blue")+ggtitle("Scatter Plot")+xlab("x-axis")+ylab("y-axis")
+
