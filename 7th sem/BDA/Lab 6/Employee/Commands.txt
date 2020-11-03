@@ -1,0 +1,24 @@
+1)Create a keyspace by name Employee:
+CREATE KEYSPACE Employee WITH REPLICATION={'class':'SimpleStrategy','replication_factor':1};
+
+2)Create a column family by name Employee-Info with attributes Emp_Id Primary Key, Emp_Name, Designation, Date_of_Joining, Salary,
+Dept_Name:
+CREATE TABLE EmployeeInfo (Emp_Id int,Emp_name text,Designation text,DateOfJoining timestamp,Salary double,Department text, PRIMARY KEY(Emp_Id));
+
+3)Insert the values into the table in batch:
+BEGIN BATCH ... INSERT INTO EmployeeInfo(Emp_Id,Emp_name,Designation,DateOfJoining,Salary,Department)VALUES(123,'Kusuma','HOD','2017-07-10',15000,'CSE') ... INSERT INTO EmployeeInfo(Emp_Id,Emp_name,Designation,DateOfJoining,Salary,Department)VALUES(125,'Aish','Lecturer','2017-08-10',20000,'CSE') ... INSERT INTO EmployeeInfo(Emp_Id,Emp_name,Designation,DateOfJoining,Salary,Department)VALUES(121,'Bhoomika','Professor','2017-07-23',7000,'CSE') INSERT INTO EmployeeInfo
+APPLY BATCH;
+
+4)Update Employee name and Department of Emp-Id 123:
+UPDATE EmployeeInfo SET Emp_name='ABC',Department = 'ECE' WHERE Emp_id=123;
+
+5)Alter the schema of the table Employee_Info to add a column Projects which stores a set of Projects done by the corresponding Employee.
+ALTER TABLE EmployeeInfo ADD Projects set<text>;
+
+6)Update the altered table to add project names.
+Update EmployeeInfo SET Projects={'bda','dsr','cloud'} WHERE Emp_id=125;
+
+7)Create a TTL of 15 seconds to display the values of Employees.
+
+INSERT INTO EmployeeInfo(Emp_Id,Emp_name,Designation,DateOfJoining,Salary,Department)VALUES(124,'Laksh','PR','2018-07-23',5000,'CSE')USING TTL 30;
+SELECT TTL(designation)FROM EmployeeInfo WHERE Emp_id=124;
