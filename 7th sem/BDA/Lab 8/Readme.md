@@ -7,7 +7,7 @@
 ### start hadoop server
 >start-dfs.sh
 
->start_yarn.sh
+>start-yarn.sh
 
 
 ### check if all nodes are running
