@@ -1,0 +1,35 @@
+## Hive Employee Program
+1. #### Create an external table named with the following attributes -> Empl_ID ->Emp_Name -> Designation -> Salary
+   * CREATE DATABASE IF NOT EXISTS lab9 COMMENT 'employee program' WITH DBPROPERTIES ('creator'='KUSUMA');
+   * SHOW DATABASES;
+   * DESCRIBE DATABASE lab9; 
+   * USE lab9;
+   * CREATE EXTERNAL TABLE IF NOT EXISTS Employee(EmpID INT,EmpName STRING,Designation STRING,Salary FLOAT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+2. #### Load data into table from a given file 
+   * LOAD DATA LOCAL INPATH '/home/kusuma/Desktop/employeeInput.txt' OVERWRITE INTO TABLE Employee;
+![](https://github.com/chandana-kolli/BDA/blob/master/Lab%209/output/op1.JPG)
+   * SELECT * FROM Employee;
+3. #### Create a view to Generate a query to retrieve the employee details who earn a salary of more than Rs 30000. 
+   * CREATE VIEW emp_30000 AS SELECT * FROM Employee WHERE Salary>30000;
+   * SELECT * FROM emp_30000;
+4. #### Alter the table to add a column Dept_Id and Generate a query to retrieve the employee details in order by using Dept_Id 
+   * ALTER TABLE Employee ADD COLUMNS(DeptID INT);
+   * LOAD DATA LOCAL INPATH '/home/kusuma/Desktop/employeeInputAltered.txt' OVERWRITE INTO TABLE Employee;
+![](https://github.com/chandana-kolli/BDA/blob/master/Lab%209/output/op2.JPG)
+   * SELECT * FROM Employee;
+   * SELECT * FROM Employee ORDER BY DeptID;
+![](https://github.com/chandana-kolli/BDA/blob/master/Lab%209/output/op3.JPG)
+5. #### Generate a query to retrieve the number of employees in each department whose salary is greater than 30000 
+   * SELECT DeptID,count(*) FROM Employee WHERE Salary>=30000 GROUP BY DeptID;
+![](https://github.com/chandana-kolli/BDA/blob/master/Lab%209/output/op4.JPG)
+6. #### Create another table Department with attributes -> Dept_Id ->Dept_name ->Emp_Id 
+   * CREATE EXTERNAL TABLE IF NOT EXISTS Department(DeptId INT,DeptName STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t';
+   * LOAD DATA LOCAL INPATH '/home/kusuma/Desktop/DepartmentInput.txt' OVERWRITE INTO TABLE Department;
+   * SELECT * FROM Department;
+  ![](https://github.com/chandana-kolli/BDA/blob/master/Lab%209/output/op6.JPG)
+7. #### Display the cumulative details of each employee along with department details
+   * SELECT a.EmpID,a.EmpName,a.Designation,a.Salary,b.DeptName FROM Employee a JOIN Department b ON a.DeptID=b.DeptId;
+![](https://github.com/chandana-kolli/BDA/blob/master/Lab%209/output/op5.JPG)
+
+
+
